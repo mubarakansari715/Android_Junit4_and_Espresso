@@ -8,3 +8,4 @@ Simple Login Form
 -> Data binding
 -> Junit4 
 -> Espresso
+-> Perform Recyclerview operations like add and delete items
