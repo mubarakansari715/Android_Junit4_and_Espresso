@@ -72,6 +72,27 @@ class MainActivityScreenTest {
     }
 
     @Test
+    fun validEmail() {
+        val errorMsg = "Please enter a valid email"
+        onView(withId(R.id.edtEmail)).perform(typeText("Mubarak@"))
+        onView(withId(R.id.edtPassword)).perform(typeText("Mubarak@123"))
+        onView(withId(R.id.btnSubmit)).perform(click())
+        onView(withText(errorMsg)).check(ViewAssertions.matches(isDisplayed()))
+        Thread.sleep(1500)
+    }
+
+
+    @Test
+    fun validPassword() {
+        val errorMsg = "Please enter a valid password"
+        onView(withId(R.id.edtEmail)).perform(typeText("Mubarak@gmail.com"))
+        onView(withId(R.id.edtPassword)).perform(typeText("Admin1"))
+        onView(withId(R.id.btnSubmit)).perform(click())
+        onView(withText(errorMsg)).check(ViewAssertions.matches(isDisplayed()))
+        Thread.sleep(1500)
+    }
+
+    @Test
     fun successfullyLogin() {
         val errorMsg = "Login Successfully"
         onView(withId(R.id.edtEmail)).perform(typeText("Mubarak@gmail.com"))

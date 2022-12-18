@@ -2,6 +2,7 @@ package com.mubarak.android_junit_and_espresso
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mubarak.android_junit_and_espresso.utils.SingleLiveEvent
 import com.mubarak.android_junit_and_espresso.utils.Validation
 
 class MainViewModel : ViewModel() {
@@ -24,8 +25,14 @@ class MainViewModel : ViewModel() {
             !Validation.isNotNull(email.value.toString().trim()) -> {
                 showSnackbarMessage("Please Enter Email")
             }
+            !Validation.isEmailValid(email.value.toString().trim()) -> {
+                showSnackbarMessage("Please enter a valid email")
+            }
             !Validation.isNotNull(password.value.toString().trim()) -> {
                 showSnackbarMessage("Please Enter Password")
+            }
+            !Validation.isValidPassword(password.value.toString().trim()) -> {
+                showSnackbarMessage("Please enter a valid password")
             }
             else -> {
                 loginClick?.call()

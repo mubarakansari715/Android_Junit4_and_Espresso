@@ -1,4 +1,4 @@
-package com.mubarak.android_junit_and_espresso
+package com.mubarak.android_junit_and_espresso.utils
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
